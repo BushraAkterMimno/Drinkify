@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Drinkify</title>
+  <link rel="shortcut icon" href="./assets/logo.png" type="image/x-icon">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <style>
+    body {
+      overflow-x: hidden;
+      background: linear-gradient(180deg, #fff7e6, #ffe5b4);
+      font-family: 'Poppins', sans-serif;
+    }
+    .drink-img {
+      width: 280px;
+      transition: transform 0.5s ease;
+      z-index: 10;
+      position: relative;
+    }
+    .orange-piece {
+      position: absolute;
+      width: 100px;
+      z-index: 1;
+      transition: all 0.6s ease;
+    }
+    .leaf-piece {
+      position: absolute;
+      width: 70px;
+      z-index: 1;
+      transition: all 0.6s ease;
+    }
+  </style>
+</head>
+<body class="text-gray-800">
+
+  <!-- Navbar -->
+  <nav class="flex justify-between items-center px-8 py-4 bg-white shadow-md fixed top-0 left-0 w-full z-20">
+    <h1 class="text-2xl font-bold text-orange-500">Drinkify</h1>
+    <ul class="hidden md:flex gap-6 text-lg">
+      <li class="hover:text-orange-500 cursor-pointer">Home</li>
+      <li class="hover:text-orange-500 cursor-pointer">Products</li>
+      <li class="hover:text-orange-500 cursor-pointer">Contact</li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="min-h-screen flex flex-col md:flex-row items-center justify-center pt-24 px-6 relative overflow-hidden">
+    <div class="md:w-1/2 flex justify-center relative">
+      <img src="https://pngimg.com/d/fanta_PNG35.png" alt="Fanta" class="drink-img" id="fanta" />
+      <img src="assets/leaf.png" class="leaf-piece top-1 left-48" id="orange1" />
+      <img src="assets/Orange_Slices.png" class="orange-piece bottom-1 right-24 w-40" id="orange2" />
+      <img src="https://pngimg.com/d/orange_PNG808.png" class="orange-piece top-1/2 left-44" id="leaf1" />
+    </div>
+
+    <div class="md:w-1/2 text-center md:text-left mt-10 md:mt-0">
+      <h2 class="text-5xl font-bold mb-4 text-orange-600">Fresh & Fizzy</h2>
+      <p class="text-lg mb-6">Taste the real burst of orange with Fanta! Feel the bubbles of freshness in every sip.</p>
+      <button class="bg-orange-500 text-white px-6 py-3 rounded-full text-lg hover:bg-orange-600 transition">Order Now</button>
+    </div>
+  </section>
+
+  <!-- Cards Section -->
+  <section id="cards" class="min-h-screen bg-white grid grid-cols-1 md:grid-cols-3 gap-10 px-6 py-20 relative overflow-hidden place-items-center">
+    
+    <!-- Coca-Cola -->
+    <div class="card opacity-0 transform scale-75 max-w-xs bg-red-50 p-6 rounded-2xl shadow-md text-center transition">
+      <img src="assets/cocacola.png" class="mx-auto w-40 mb-4" alt="Coca-Cola">
+      <h3 class="text-2xl font-bold mb-2 text-red-600">Coca-Cola</h3>
+      <p class="text-gray-600 mb-4">Classic taste that never goes out of style.</p>
+      <button class="bg-red-500 text-white px-5 py-2 rounded-full hover:bg-red-600">Try Now</button>
+    </div>
+
+    <!-- Fanta -->
+    <div id="fanta-card" class="card opacity-0 transform scale-75 max-w-xs bg-fuchsia-50 p-6 rounded-2xl shadow-lg text-center transition relative">
+      <img src="https://pngimg.com/d/fanta_PNG35.png" class="mx-auto w-40 mb-4" alt="Fanta">
+      <h3 class="text-2xl font-bold mb-2 text-fuchsia-800">Fanta</h3>
+      <p class="text-gray-600 mb-4">Feel the fruity burst of orange goodness.</p>
+      <button class="bg-fuchsia-700 text-white px-5 py-2 rounded-full hover:bg-orange-600">Try Now</button>
+    </div>
+
+    <!-- Sprite -->
+    <div class="card opacity-0 transform scale-75 max-w-xs bg-green-50 p-6 rounded-2xl shadow-md text-center transition">
+      <img src="assets/sprite.png" class="mx-auto w-40 mb-4" alt="Sprite">
+      <h3 class="text-2xl font-bold mb-2 text-green-600">Sprite</h3>
+      <p class="text-gray-600 mb-4">Refreshing lemon-lime taste to spark your mood.</p>
+      <button class="bg-green-500 text-white px-5 py-2 rounded-full hover:bg-green-600">Try Now</button>
+    </div>
+
+    <!-- Pepsi -->
+    <div class="card opacity-0 transform scale-75 max-w-xs bg-blue-50 p-6 rounded-2xl shadow-md text-center transition">
+      <img src="assets/pepsi.png" class="mx-auto w-40 mb-4" alt="Pepsi">
+      <h3 class="text-2xl font-bold mb-2 text-blue-600">Pepsi</h3>
+      <p class="text-gray-600 mb-4">Bold and vibrant cola taste you’ll love.</p>
+      <button class="bg-blue-500 text-white px-5 py-2 rounded-full hover:bg-blue-600">Try Now</button>
+    </div>
+
+    <!-- Mirinda -->
+    <div class="card opacity-0 transform scale-75 max-w-xs bg-yellow-50 p-6 rounded-2xl shadow-md text-center transition">
+      <img src="assets/mirinda.png" class="mx-auto w-40 mb-4" alt="Mirinda">
+      <h3 class="text-2xl font-bold mb-2 text-yellow-600">Mirinda</h3>
+      <p class="text-gray-600 mb-4">Vibrant orange fizz that lifts your mood!</p>
+      <button class="bg-yellow-500 text-white px-5 py-2 rounded-full hover:bg-yellow-600">Try Now</button>
+    </div>
+
+    <!-- Mountain Dew -->
+    <div class="card opacity-0 transform scale-75 max-w-xs bg-lime-50 p-6 rounded-2xl shadow-md text-center transition">
+      <img src="assets/Mountain-Dew.png" class="mx-auto w-24 mb-4" alt="Mountain Dew">
+      <h3 class="text-2xl font-bold mb-2 text-lime-600">Mountain Dew</h3>
+      <p class="text-gray-600 mb-4">The ultimate citrus blast of adventure!</p>
+      <button class="bg-lime-500 text-white px-5 py-2 rounded-full hover:bg-lime-600">Try Now</button>
+    </div>
+  </section>
+
+  <!-- About Section -->
+<section class="fade-section min-h-[60vh] bg-gradient-to-b from-orange-50 to-white flex flex-col justify-center items-center px-8 py-20 text-center">
+  <img src="https://pngimg.com/d/fanta_PNG35.png" alt="Fanta" class="w-32 mb-6">
+  <h2 class="text-4xl font-bold text-orange-600 mb-4">About Drinkify</h2>
+  <p class="max-w-3xl text-gray-700 text-lg leading-relaxed">
+    Drinkify brings joy to every sip. Discover the world’s favorite soft drinks — Fanta, Coke, Sprite, Mirinda, and more — all presented in one refreshing place.
+  </p>
+</section>
+
+<!-- Testimonials -->
+<section class="fade-section min-h-[60vh] bg-white py-20 px-6 text-center">
+  <h2 class="text-4xl font-bold text-orange-600 mb-10">What Our Fans Say</h2>
+  <div class="grid md:grid-cols-3 gap-8">
+    <div class="testimonial-card bg-orange-50 p-6 rounded-xl shadow-md">
+      <img src="./assets/cocacola.png" class="mx-auto w-20 mb-4" alt="Coca-Cola">
+      <p class="text-gray-700 italic mb-4">"Fanta is my favorite! One sip and I feel refreshed instantly."</p>
+      <h4 class="font-bold text-orange-500">— Riya</h4>
+    </div>
+    <div class="testimonial-card bg-orange-50 p-6 rounded-xl shadow-md">
+      <img src="./assets/sprite.png" class="mx-auto w-20 mb-4" alt="Sprite">
+      <p class="text-gray-700 italic mb-4">"Drinkify gives me all my favorite brands in one place. Love it!"</p>
+      <h4 class="font-bold text-orange-500">— Sayem</h4>
+    </div>
+    <div class="testimonial-card bg-orange-50 p-6 rounded-xl shadow-md">
+      <img src="./assets/pepsi.png" class="mx-auto w-20 mb-4" alt="Pepsi">
+      <p class="text-gray-700 italic mb-4">"Sprite and Mirinda here are the freshest ever!"</p>
+      <h4 class="font-bold text-orange-500">— Mithila</h4>
+    </div>
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section class="fade-section min-h-[50vh] bg-orange-100 flex flex-col justify-center items-center text-center px-6 py-16">
+  <img src="./assets/Mountain-Dew.png" alt="Mountain Dew" class="w-28 mb-6">
+  <h2 class="text-4xl font-bold text-orange-700 mb-4">Get in Touch</h2>
+  <p class="text-gray-700 mb-6 max-w-2xl">
+    Have any questions or suggestions? Send us a message — we’d love to hear from you!
+  </p>
+  <button class="bg-orange-600 text-white px-8 py-3 rounded-full text-lg hover:bg-orange-700 transition">Contact Us</button>
+</section>
+
+<!-- Footer -->
+<footer class="bg-gray-900 text-gray-300 py-10 px-6 text-center">
+  <h3 class="text-xl font-semibold text-white mb-2">Drinkify © 2025</h3>
+  <p class="text-gray-400">All rights reserved. Crafted with ❤️ by Bushra.</p>
+</footer>
+
+  <script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    const fantaCard = document.querySelector("#fanta-card");
+
+    // Animate Fanta bottle & pieces toward Fanta card
+    gsap.to("#fanta", {
+      scrollTrigger: {
+        trigger: "#cards",
+        start: "top bottom",
+        end: "top 50%",
+        scrub: 1,
+      },
+      x: () => fantaCard.getBoundingClientRect().left - window.innerWidth / 2 + 180,
+      y: () => fantaCard.getBoundingClientRect().top - window.innerHeight / 2 + 280,
+      scale: 0.4,
+      rotation: 360,
+      opacity: 0,
+      ease: "power2.inOut"
+    });
+
+    gsap.to("#orange1", {
+      scrollTrigger: {
+        trigger: "#cards",
+        start: "top bottom",
+        end: "top 50%",
+        scrub: 1,
+      },
+      x: 150,
+      y: 200,
+      rotation: 180,
+      scale: 0.3,
+      opacity: 0,
+    });
+
+    gsap.to("#orange2", {
+      scrollTrigger: {
+        trigger: "#cards",
+        start: "top bottom",
+        end: "top 50%",
+        scrub: 1,
+      },
+      x: -200,
+      y: 150,
+      rotation: -150,
+      scale: 0.3,
+      opacity: 0,
+    });
+
+    gsap.to("#leaf1", {
+      scrollTrigger: {
+        trigger: "#cards",
+        start: "top bottom",
+        end: "top 50%",
+        scrub: 1,
+      },
+      x: 100,
+      y: 150,
+      rotation: 120,
+      scale: 0.4,
+      opacity: 0,
+    });
+
+    // Card appearance animation
+    gsap.utils.toArray(".card").forEach((card, i) => {
+      gsap.to(card, {
+        scrollTrigger: {
+          trigger: card,
+          start: "top 90%",
+          toggleActions: "play none none reverse"
+        },
+        opacity: 1,
+        scale: 1,
+        y: -20,
+        duration: 0.8,
+        delay: i * 0.1,
+        ease: "back.out(1.7)"
+      });
+    });
+
+    // GSAP scroll animation for fade-up
+  gsap.utils.toArray(".fade-section, .testimonial-card").forEach((el, i) => {
+    gsap.from(el, {
+      opacity: 0,
+      y: 80,
+      duration: 1,
+      scrollTrigger: {
+        trigger: el,
+        start: "top 85%",
+        toggleActions: "play none none reverse",
+      },
+      delay: i * 0.1
+    });
+  });
+  </script>
+</body>
+</html>
